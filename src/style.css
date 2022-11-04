@@ -52,31 +52,41 @@ html {
 .newTaskBtn {
     color: white;
     background-color: #D9D9D9;
-    height: 31px;
+    height: 33px;
     width: 35px;
-    padding-top: 4px;
+    padding-top: 2px;
     border-radius: 50%;
     text-align: center;
     justify-content: center;
 }
 
-.taskNameSpace {
+input {
+    font-size: 24px;
     padding-top: 4px;
     margin-left: 30px;
+    border: none;
 }
 
-.taskNameSpace:hover {
+input:hover, .addTaskBtn:hover {
     cursor: pointer;
 }
 
-.editedTitle {
-    color: black;
-    min-width: 200px;
+input:focus {
     outline: none;
-    padding-top: 4px;
-    margin-left: 30px;
 }
 
-.editedTitle:hover {
-    cursor: pointer;
+.taskText {
+    padding-top: 4px;
+    margin-left: 30px;
+    color: black;
+}
+
+.addTaskBtn {
+    background-color: #f1eee7;
+    border: none;
+    font-size: 24px;
+}
+
+.completedTask {
+    text-decoration: line-through;
 }

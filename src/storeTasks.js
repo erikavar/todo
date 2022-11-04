@@ -1,5 +1,2 @@
-let taskArr = [];
-
-
-
-export default taskArr;
+let storeTasks = [];
+export default storeTasks;
