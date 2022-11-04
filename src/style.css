@@ -67,7 +67,7 @@ input {
     border: none;
 }
 
-input:hover, .addTaskBtn:hover {
+input:hover, .addTaskBtn:hover, .newTaskBtn:hover {
     cursor: pointer;
 }
 
@@ -89,4 +89,5 @@ input:focus {
 
 .completedTask {
     text-decoration: line-through;
+    color: red;
 }
