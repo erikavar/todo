@@ -5,41 +5,53 @@ function arrayToDisplay() {
     document.getElementById("addedTaskContainer").textContent = "";
 
     storeTasks.forEach(function(task, index) {
+
         const taskDiv = document.createElement("div");
         taskDiv.classList.add("task");
 
+        const detailsDiv = document.createElement("div");
+        detailsDiv.classList.add("taskDetails");
+
         const check = document.createElement("div");
-        check.classList.add("newTaskBtn");
+        check.classList.add("checkOffTaskBtn");
         check.textContent = "☐";
         check.addEventListener("click", task.checkOffTask.bind(task));
-        taskDiv.appendChild(check);
+        detailsDiv.appendChild(check);
 
-        const taskTitle = document.createElement("div");
-        taskTitle.textContent = task.title;
-        taskTitle.classList.add("taskText");
-        taskDiv.appendChild(taskTitle);
+        let deets = Object.keys(task);
 
-        const taskLabel = document.createElement("div");
-        taskLabel.textContent = task.label;
-        taskLabel.classList.add("taskText");
-        taskDiv.appendChild(taskLabel);
+        deets.forEach((property) => {
+            const div = document.createElement("div");
+            if (property !== "done") {
+                div.textContent = (`${task[property]}`);
+                div.classList.add("taskText");
+                detailsDiv.appendChild(div);
+            }
+        });
+
+        const taskTextItems = document.querySelectorAll(".taskText");
 
         if (task.done === "done") {
-            taskDiv.classList.add("completedTask");
-        } else if(task.done == "not done") {
-            taskDiv.classList.remove("completedTask");
-        }
+            check.classList.add("completedTask");
+            detailsDiv.classList.add("completedTask");
+        } 
 
         const deleteBtn = document.createElement("button");
         deleteBtn.textContent = "Delete";
-        taskDiv.appendChild(deleteBtn);
+        deleteBtn.classList.add("deleteTaskBtn")
 
+        const editBtn = document.createElement("button");
+        editBtn.textContent = "Edit";
+       
         taskDiv.setAttribute("data-index-number", index);
         deleteBtn.addEventListener("click", function() {
             document.getElementById("addedTaskContainer").removeChild(taskDiv);
             storeTasks.splice(Number(taskDiv.dataset.indexNumber), 1);
         });
 
+        taskDiv.appendChild(detailsDiv);
+        taskDiv.appendChild(deleteBtn);
+        taskDiv.appendChild(editBtn);
         document.getElementById("addedTaskContainer").appendChild(taskDiv);
     });
 }

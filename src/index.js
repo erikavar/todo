@@ -6,13 +6,12 @@ import generateTaskList from './taskList';
 //import eventListener from './eventListener';
 import addTaskToArray from './addTask';
 import arrayToDisplay from './arrayToDisplay';
+import loadCalView from './loadCalView';
 import './style.css';
 
 generateNavbar();
 generateSidebar();
 generateTaskList();
-
-//if (document.getElementById("taskTitle").textContent !=="") {
-    document.querySelector(".addTaskBtn").addEventListener("click", addTaskToArray);
-//}
+document.querySelector(".addTaskBtn").addEventListener("click", addTaskToArray);
 document.querySelector(".addTaskBtn").addEventListener("click", arrayToDisplay);
+document.getElementById("calViewBtn").addEventListener("click", loadCalView);

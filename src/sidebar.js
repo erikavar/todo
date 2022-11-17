@@ -4,6 +4,7 @@ function generateSidebar() {
 
     const calViewBtn = document.createElement("div");
     calViewBtn.textContent = "calendar view";
+    calViewBtn.setAttribute("id", "calViewBtn");
 
     const projViewBtn = document.createElement("div");
     projViewBtn.textContent = "project view";

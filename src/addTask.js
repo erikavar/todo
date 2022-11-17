@@ -7,8 +7,12 @@ function addTaskToArray() {
 
     newTask.title = document.getElementById("taskTitle").value;
     newTask.label = document.getElementById("taskLabel").value;
+    newTask.priority = document.getElementById("taskPriority").value;
+    newTask.dueDate = document.getElementById("dueDate").value;
 
-    storeTasks.push(newTask);
+    if (newTask.title) {
+        storeTasks.push(newTask);
+    }
 
     console.table(storeTasks);
 
