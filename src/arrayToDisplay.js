@@ -29,8 +29,6 @@ function arrayToDisplay() {
             }
         });
 
-        const taskTextItems = document.querySelectorAll(".taskText");
-
         if (task.done === "done") {
             check.classList.add("completedTask");
             detailsDiv.classList.add("completedTask");
