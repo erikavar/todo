@@ -13,16 +13,24 @@ function loadCalView() {
 
     sortedByDate.forEach(function(task, index) {
 
+        console.log(typeof task);
+
         const taskDiv = document.createElement("div");
         taskDiv.classList.add("task");
 
         const detailsDiv = document.createElement("div");
         detailsDiv.classList.add("taskDetails");
 
+        function func() {
+            this.checkOffTask();
+        }
+
+        let funcCheckOff = func.bind(task);
+
         const check = document.createElement("div");
         check.classList.add("checkOffTaskBtn");
         check.textContent = "☐";
-        check.addEventListener("click", task.checkOffTask.bind(task));
+        check.addEventListener("click", funcCheckOff);
         detailsDiv.appendChild(check);
 
         let deets = Object.keys(task);
