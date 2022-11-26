@@ -1,4 +1,6 @@
 import storeTasks from "./storeTasks";
+import arrayToDisplay from "./arrayToDisplay";
+import checkOffTasks from "./checkOffTasks";
 
 function loadCalView() {
 
@@ -11,9 +13,13 @@ function loadCalView() {
     const sortedByDate = arr1.sort((a, b) => Number(a.dueDate) - Number(b.dueDate));
     console.table(sortedByDate);
 
-    sortedByDate.forEach(function(task, index) {
+    arrayToDisplay(sortedByDate);
+    checkOffTasks(sortedByDate);
 
-        console.log(typeof task);
+
+    /*sortedByDate.forEach(function(task, index) {
+
+        console.log('checkOffTask' in task);
 
         const taskDiv = document.createElement("div");
         taskDiv.classList.add("task");
@@ -66,7 +72,7 @@ function loadCalView() {
         taskDiv.appendChild(deleteBtn);
         taskDiv.appendChild(editBtn);
         document.getElementById("addedTaskContainer").appendChild(taskDiv);
-    });
+    });*/
     
 }
 

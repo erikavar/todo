@@ -1,10 +1,10 @@
-import storeTasks from "./storeTasks";
+//import storeTasks from "./storeTasks";
 
-function arrayToDisplay() {
+function arrayToDisplay(arr) {
 
     document.getElementById("addedTaskContainer").textContent = "";
 
-    storeTasks.forEach(function(task, index) {
+    arr.forEach(function(task, index) {
 
         const taskDiv = document.createElement("div");
         taskDiv.classList.add("task");
@@ -22,7 +22,7 @@ function arrayToDisplay() {
 
         deets.forEach((property) => {
             const div = document.createElement("div");
-            if (property !== "done") {
+            if (property !== "done" && property !== "checkOffTask") {
                 div.textContent = (`${task[property]}`);
                 div.classList.add("taskText");
                 detailsDiv.appendChild(div);
@@ -44,7 +44,7 @@ function arrayToDisplay() {
         taskDiv.setAttribute("data-index-number", index);
         deleteBtn.addEventListener("click", function() {
             document.getElementById("addedTaskContainer").removeChild(taskDiv);
-            storeTasks.splice(Number(taskDiv.dataset.indexNumber), 1);
+            arr.splice(Number(taskDiv.dataset.indexNumber), 1);
         });
 
         taskDiv.appendChild(detailsDiv);
@@ -54,4 +54,4 @@ function arrayToDisplay() {
     });
 }
 
-export default arrayToDisplay
+export default arrayToDisplay;

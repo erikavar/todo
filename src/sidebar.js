@@ -1,6 +1,7 @@
 function generateSidebar() {
     const allTasksBtn = document.createElement("div");
     allTasksBtn.textContent = "all tasks";
+    allTasksBtn.setAttribute("id", "homeViewBtn");
 
     const calViewBtn = document.createElement("div");
     calViewBtn.textContent = "calendar view";
@@ -8,6 +9,7 @@ function generateSidebar() {
 
     const projViewBtn = document.createElement("div");
     projViewBtn.textContent = "project view";
+    projViewBtn.setAttribute("id", "projViewBtn");
 
     allTasksBtn.classList.add("sidebarBtn");
     calViewBtn.classList.add("sidebarBtn");

@@ -96,7 +96,7 @@ input:focus {
     color: black;
 }
 
-.addTaskBtn, .deleteTaskBtn {
+.addTaskBtn, .deleteTaskBtn, .addInHomeView, .addInTaskView {
     background-color: #f1eee7;
     border: none;
     font-size: 20px;

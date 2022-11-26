@@ -14,8 +14,6 @@ function addTaskToArray() {
         storeTasks.push(newTask);
     }
 
-    console.table(storeTasks);
-
     document.querySelector("form").reset();
 
 }
