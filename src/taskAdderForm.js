@@ -53,7 +53,8 @@ dueDate.setAttribute("autocomplete", "off");
 
 const s = document.createElement("button");
 s.setAttribute("type", "button");
-s.setAttribute("class", "addTaskBtn");
+s.classList.add("addTaskBtn");
+s.classList.add("addInHomeView");
 s.textContent = "Add to list";
 
 form.appendChild(taskTitle);
