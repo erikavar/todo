@@ -43,7 +43,7 @@ function arrayToDisplay(arr) {
         } 
 
         const deleteBtn = document.createElement("button");
-        deleteBtn.textContent = "Delete";
+        deleteBtn.textContaent = "Delete";
         deleteBtn.classList.add("deleteTaskBtn")
 
         const editBtn = document.createElement("button");
@@ -51,8 +51,10 @@ function arrayToDisplay(arr) {
        
         taskDiv.setAttribute("data-index-number", index);
         deleteBtn.addEventListener("click", function() {
-            document.getElementById("addedTaskContainer").removeChild(taskDiv);
-            arr.splice(Number(taskDiv.dataset.indexNumber), 1);
+            if (confirm("This task will be permanently deleted.")) {
+                document.getElementById("addedTaskContainer").removeChild(taskDiv);
+                arr.splice(Number(taskDiv.dataset.indexNumber), 1);
+            }
         });
 
         taskDiv.appendChild(detailsDiv);
