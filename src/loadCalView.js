@@ -8,6 +8,9 @@ function loadCalView() {
 
     sortByDate();
 
+    document.getElementById("calViewBtn").classList.add("selectedBtn");
+    document.getElementById("homeViewBtn").classList.remove("selectedBtn");
+
     document.querySelector(".addTaskBtn").classList.add("addInCalView");
     document.querySelector(".addTaskBtn").classList.remove("addInHomeView");
 
