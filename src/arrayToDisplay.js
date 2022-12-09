@@ -1,4 +1,5 @@
-//import storeTasks from "./storeTasks";
+import storeTasks from "./storeTasks";
+import storeDatedTasks from "./storeDatedTasks";
 
 function arrayToDisplay(arr) {
 
@@ -14,6 +15,13 @@ function arrayToDisplay(arr) {
 
         const check = document.createElement("div");
         check.classList.add("checkOffTaskBtn");
+        if (arr === storeTasks) {
+            check.classList.add("homeCheck");
+            check.classList.remove("calCheck");
+        } else if (arr === storeDatedTasks) {
+            check.classList.add("calCheck");
+            check.classList.remove("homeCheck");
+        }
         check.textContent = "☐";
         check.addEventListener("click", task.checkOffTask.bind(task));
         detailsDiv.appendChild(check);
