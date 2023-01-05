@@ -19,7 +19,7 @@ function sortByDate() {
     
     document.addEventListener("click", function(e) {
         const target = e.target.closest(".deleteTaskBtn");
-        if(target){
+        if(target) {
 
             let arr2 = storeTasks.filter(({ title }) => storeDatedTasks.some((e) => e.title === title));
 
@@ -30,6 +30,20 @@ function sortByDate() {
             };
         }
     });
+
+    /*document.addEventListener("click", function(e) {
+        const target = e.target.closest(".editBtn");
+        if(target){
+
+            let arr2 = storeTasks.filter(({ title }) => storeDatedTasks.some((e) => e.title === title));
+
+            storeTasks.length = 0;
+    
+            for (const obj of arr2) {
+                storeTasks.push(obj);
+            };
+        }
+    });*/
 
 }
 

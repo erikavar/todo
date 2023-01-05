@@ -4,25 +4,22 @@ html {
 }
 
 #navbar {
-    font-size: 64px;
-    margin: 50px 50px 50px;
-    border: 1px solid red;
+    font-size: 28px;
+    margin: 50px 50px 0px;
     display: flex;
 }
 
 #sidebar {
-    font-size: 32px;
-    margin: 50px 50px 50px;
-    border: 1px solid red;
+    font-size: 22px;
+    margin: 50px 25px 50px 50px;
 }
 
 #pageContainer {
     display: grid;
-    grid-template-columns: 300px auto;
+    grid-template-columns: 220px auto;
 }
 
 #taskContainer {
-    border: 1px solid red;
     margin: 50px 50px 50px;
 }
 
@@ -45,17 +42,15 @@ html {
 }
 
 .task {
-    border: 1px solid blue;
     background-color: white;
     color: #D9D9D9;
-    font-size: 20px;
-    padding: 35px 25px 35px;
+    font-size: 18px;
+    padding: 25px 25px 25px;
     margin-bottom: 30px;
     display: flex;
 }
 
 .taskDetails {
-    border: 1px solid orange;
     display: flex;
     justify-content: space-around;
 }
@@ -67,9 +62,9 @@ html {
 .newTaskBtn, .checkOffTaskBtn {
     color: white;
     background-color: #D9D9D9;
-    height: 31px;
+    height: 29px;
     width: 35px;
-    padding-top: 4px;
+    padding-top: 6px;
     border-radius: 50%;
     text-align: center;
     margin-right: 10px;
@@ -77,16 +72,15 @@ html {
 
 form {
     display: flex;
-    border: 1px solid green;
 }
 
 input {
-    font-size: 20px;
+    font-size: 18px;
     width: 180px;
     border: none;
 }
 
-input:hover, .addTaskBtn:hover, .checkOffTaskBtn:hover, .deleteTaskBtn:hover {
+input:hover, .addTaskBtn:hover, .checkOffTaskBtn:hover, .deleteTaskBtn:hover, .editBtn:hover {
     cursor: pointer;
 }
 
@@ -99,11 +93,18 @@ input:focus {
     color: black;
 }
 
-.addTaskBtn, .deleteTaskBtn, .addInHomeView, .addInTaskView {
+.addTaskBtn, .addInHomeView, .addInTaskView {
     background-color: #f1eee7;
     border: none;
-    font-size: 20px;
+    font-size: 18px;
     width: 200px;
+}
+
+.deleteTaskBtn, .editBtn {
+    background-color: #f1eee7;
+    border: none;
+    font-size: 18px;
+    width: 100px;
 }
 
 .completedTask {
