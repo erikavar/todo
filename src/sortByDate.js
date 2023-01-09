@@ -31,19 +31,22 @@ function sortByDate() {
         }
     });
 
-    /*document.addEventListener("click", function(e) {
+    document.addEventListener("click", function(e) {
         const target = e.target.closest(".editBtn");
-        if(target){
+        if(target) {
+            if(target.textContent === "Edit") {
 
-            let arr2 = storeTasks.filter(({ title }) => storeDatedTasks.some((e) => e.title === title));
+                let arr2 = storeDatedTasks;                
+                arr2.sort((a, b) => a.homePosition - b.homePosition);
 
-            storeTasks.length = 0;
-    
-            for (const obj of arr2) {
-                storeTasks.push(obj);
-            };
+                storeTasks.length = 0;
+        
+                for (const obj of arr2) {
+                    storeTasks.push(obj);
+                };
+            }
         }
-    });*/
+    });
 
 }
 

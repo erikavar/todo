@@ -18,6 +18,7 @@ function arrayToDisplay(arr) {
         if (arr === storeTasks) {
             check.classList.add("homeCheck");
             check.classList.remove("calCheck");
+            task.homePosition = index + 1;
         } else if (arr === storeDatedTasks) {
             check.classList.add("calCheck");
             check.classList.remove("homeCheck");
@@ -30,7 +31,7 @@ function arrayToDisplay(arr) {
 
         deets.forEach((property) => {
             const div = document.createElement("div");
-            if (property !== "done" && property !== "checkOffTask") {
+            if (property !== "done" && property !== "checkOffTask" && property!== "homePosition") {
                 div.textContent = (`${task[property]}`);
                 div.classList.add("taskText");
                 div.classList.add(property);
@@ -76,7 +77,6 @@ function arrayToDisplay(arr) {
                 task.priority = priority.textContent;
                 task.dueDate = dueDate.textContent;
                 arr.splice(Number(taskDiv.dataset.indexNumber), 1, task);
-                console.log(arr);
                 taskTitle.contentEditable = false;
                 dueDate.contentEditable = false;
                 editBtn.textContent = "Edit";
