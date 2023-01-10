@@ -44,13 +44,13 @@ function arrayToDisplay(arr) {
             detailsDiv.classList.add("completedTask");
         } 
 
-        const deleteBtn = document.createElement("button");
-        deleteBtn.textContent = "Delete";
-        deleteBtn.classList.add("deleteTaskBtn")
-
         const editBtn = document.createElement("button");
         editBtn.textContent = "Edit";
         editBtn.classList.add("editBtn");
+
+        const deleteBtn = document.createElement("button");
+        deleteBtn.textContent = "Delete";
+        deleteBtn.classList.add("deleteTaskBtn")
        
         taskDiv.setAttribute("data-index-number", index);
 
@@ -61,32 +61,36 @@ function arrayToDisplay(arr) {
             }
         });
         
-        editBtn.addEventListener("click", function() {        
-            let taskTitle = taskDiv.querySelector(".title");
-            let label = taskDiv.querySelector(".label");
-            let priority = taskDiv.querySelector(".priority");
-            let dueDate = taskDiv.querySelector(".dueDate");
-            taskTitle.contentEditable = true;
-            dueDate.contentEditable = true;
-            label.contentEditable = true;
-            priority.contentEditable = true;
-            editBtn.textContent = "Save";
-            editBtn.addEventListener("click", function() {
-                task.title = taskTitle.textContent;
-                task.label = label.textContent;
-                task.priority = priority.textContent;
-                task.dueDate = dueDate.textContent;
-                arr.splice(Number(taskDiv.dataset.indexNumber), 1, task);
-                taskTitle.contentEditable = false;
-                dueDate.contentEditable = false;
-                editBtn.textContent = "Edit";
-            });
-            taskTitle.contentEditable = true;
-            label.contentEditable = true;
-            priority.contentEditable = true;
-            dueDate.contentEditable = true;
-            editBtn.textContent = "Save";
+        editBtn.addEventListener("click", function(e) {   
+            if (e.target.tagName === "BUTTON") {
+                let taskTitle = taskDiv.querySelector(".title");
+                let label = taskDiv.querySelector(".label");
+                let priority = taskDiv.querySelector(".priority");
+                let dueDate = taskDiv.querySelector(".dueDate");
+                if(editBtn.textContent === "Edit") {
+                    taskTitle.contentEditable = true;
+                    label.contentEditable = true;
+                    priority.contentEditable = true;
+                    dueDate.contentEditable = true;
+                    editBtn.textContent = "Save";
+                    editBtn.classList.add("saveEditsBtn");
+                } else if(editBtn.textContent === "Save") {
+                    task.title = taskTitle.textContent;
+                    task.label = label.textContent;
+                    task.priority = priority.textContent;
+                    task.dueDate = dueDate.textContent;
+                    arr.splice(Number(taskDiv.dataset.indexNumber), 1, task);
+                    taskTitle.contentEditable = false;
+                    label.contentEditable = false;
+                    priority.contentEditable = false;
+                    dueDate.contentEditable = false;
+                    editBtn.textContent = "Edit";
+                    editBtn.classList.remove("saveEditsBtn");
+
+                }
+            } 
         });
+
 
         taskDiv.appendChild(detailsDiv);
         taskDiv.appendChild(deleteBtn);
