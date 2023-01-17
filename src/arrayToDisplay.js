@@ -1,5 +1,9 @@
 import storeTasks from "./storeTasks";
 import storeDatedTasks from "./storeDatedTasks";
+import editIcon from './edit_icon.png';
+import deleteIcon from './delete_icon.png'
+import saveIcon from './save_icon.png'
+import { format, isValid } from 'date-fns'
 
 function arrayToDisplay(arr) {
 
@@ -47,10 +51,19 @@ function arrayToDisplay(arr) {
         const editBtn = document.createElement("button");
         editBtn.textContent = "Edit";
         editBtn.classList.add("editBtn");
+        const myEditIcon = new Image();
+        myEditIcon.src = editIcon;
+        editBtn.appendChild(myEditIcon);  
 
         const deleteBtn = document.createElement("button");
         deleteBtn.textContent = "Delete";
-        deleteBtn.classList.add("deleteTaskBtn")
+        deleteBtn.classList.add("deleteTaskBtn");
+        const myDeleteIcon = new Image();
+        myDeleteIcon.src = deleteIcon;
+        deleteBtn.appendChild(myDeleteIcon);
+
+        const mySaveIcon = new Image();
+        mySaveIcon.src = saveIcon;
        
         taskDiv.setAttribute("data-index-number", index);
 
@@ -62,7 +75,7 @@ function arrayToDisplay(arr) {
         });
         
         editBtn.addEventListener("click", function(e) {   
-            if (e.target.tagName === "BUTTON") {
+            if (e.target.tagName === "BUTTON" || e.target.parentNode === editBtn) {
                 let taskTitle = taskDiv.querySelector(".title");
                 let label = taskDiv.querySelector(".label");
                 let priority = taskDiv.querySelector(".priority");
@@ -74,27 +87,39 @@ function arrayToDisplay(arr) {
                     dueDate.contentEditable = true;
                     editBtn.textContent = "Save";
                     editBtn.classList.add("saveEditsBtn");
+                    editBtn.appendChild(mySaveIcon);
                 } else if(editBtn.textContent === "Save") {
                     task.title = taskTitle.textContent;
                     task.label = label.textContent;
                     task.priority = priority.textContent;
-                    task.dueDate = dueDate.textContent;
+                    let formattedDate;
+                    if (isValid(new Date(dueDate.textContent))) {
+                        formattedDate = format(new Date(dueDate.textContent), 'yyyy/MM/dd');
+                        task.dueDate = formattedDate;
+                        dueDate.textContent = formattedDate;
+                    } else if (dueDate.textContent == ""){
+                        formattedDate = "";
+                    } else {
+                        alert("Date invalid. Please use a valid date format.")
+                        formattedDate = "";
+                    }
+                    //dueDate.textContent = formattedDate;
                     arr.splice(Number(taskDiv.dataset.indexNumber), 1, task);
                     taskTitle.contentEditable = false;
                     label.contentEditable = false;
                     priority.contentEditable = false;
                     dueDate.contentEditable = false;
                     editBtn.textContent = "Edit";
+                    editBtn.appendChild(myEditIcon);
                     editBtn.classList.remove("saveEditsBtn");
 
                 }
             } 
         });
 
-
         taskDiv.appendChild(detailsDiv);
-        taskDiv.appendChild(deleteBtn);
         taskDiv.appendChild(editBtn);
+        taskDiv.appendChild(deleteBtn);
         document.getElementById("addedTaskContainer").appendChild(taskDiv);
     });
 }

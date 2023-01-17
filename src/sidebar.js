@@ -5,7 +5,7 @@ function generateSidebar() {
     allTasksBtn.classList.add("selectedBtn");
 
     const calViewBtn = document.createElement("div");
-    calViewBtn.textContent = "calendar view";
+    calViewBtn.textContent = "sort by date";
     calViewBtn.setAttribute("id", "calViewBtn");
 
     const projViewBtn = document.createElement("div");

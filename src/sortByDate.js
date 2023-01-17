@@ -1,15 +1,22 @@
 import storeTasks from "./storeTasks";
 import storeDatedTasks from "./storeDatedTasks";
+import { format, isValid } from 'date-fns'
 
 function sortByDate() {
 
     storeDatedTasks.length = 0;
 
     let arr1 = storeTasks.map(obj => {
-        return {...obj, dueDate: new Date(obj.dueDate)};
+        let formattedDate;
+        if(isValid(new Date(obj.dueDate))) {
+            formattedDate = format(new Date(obj.dueDate), 'yyyy/MM/dd');
+        } else {
+            formattedDate = " ";
+        }
+        return {...obj, dueDate: formattedDate};
     });
 
-    arr1.sort((a, b) => Number(a.dueDate) - Number(b.dueDate));
+    arr1.sort((a, b) => new Date(a.dueDate) - new Date(b.dueDate));
 
     for (const obj of arr1) {
         storeDatedTasks.push(obj);
@@ -30,6 +37,8 @@ function sortByDate() {
             };
         }
     });
+
+    // so that edits are registered in home view array too:
 
     document.addEventListener("click", function(e) {
         const target = e.target.closest(".editBtn");

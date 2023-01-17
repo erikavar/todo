@@ -101,7 +101,7 @@ input:focus {
 
 }
 
-.addInHomeView, .addInTaskView {
+.addInHomeView, .addInTaskView, .addInCalView {
     background-color: #f1eee7;
     border: none;
     font-size: 18px;
@@ -109,21 +109,20 @@ input:focus {
 }
 
 .addTaskBtn, .deleteTaskBtn, .editBtn {
-  background-color: #e5a8bf;
+  background-color: #C8C5BC;
   border-radius: 8px;
   border-style: none;
   box-sizing: border-box;
   color: #FFFFFF;
   cursor: pointer;
-  display: inline-block;
   font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   font-weight: 500;
   height: 40px;
-  width: 180px;
+  width: 210;
   line-height: 20px;
   list-style: none;
-  margin: 0;
+  margin-left: 40px;
   outline: none;
   padding: 10px 16px;
   position: relative;
@@ -134,26 +133,80 @@ input:focus {
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  display: flex;
+  justify-content: center;
 }
 
-.addTaskBtn:hover {
-  background-color: #F082AC;
+.editBtn > *, .deleteTaskBtn > *, .saveEditsBtn > *, .addTaskBtn > * {
+    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(102%);
+    width: 20px;
+    margin-left: 5px;
+    pointer-events: auto;
+}
+
+.addTaskBtn:hover, .editBtn:hover, .deleteTaskBtn:hover {
+  background-color: #A09D97
 }
 
 .deleteTaskBtn, .editBtn {
-    
     width: 100px;
 }
 
-.editBtn {
+.deleteTaskBtn {
     margin-left: 10px;
 }
 
 .saveEditsBtn {
-    background-color: #e61263;
+    background-color: #605E5A;
+}
+
+.saveEditsBtn:hover {
+    background-color: #484744;
 }
 
 .completedTask {
     text-decoration: line-through;
     text-decoration-color: black;
+}
+
+[contenteditable="true"] {
+    background-color: rgb(245, 245, 245);
+    margin-right: 4px;
+    padding-top: 6px;
+    padding-right: 0px;
+    padding-left: 2px;
+    width: 190px;
+}
+
+[contenteditable="true"]:focus {
+    outline: none;
+    border-bottom: 1px solid black;
+}
+
+#editedPriority {
+    background-color: rgb(245, 245, 245);
+    padding: 0px;
+    margin: 0px;
+}
+
+.hidden {
+    display: none;
+}
+
+#projectContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.task-item {
+    background-color: white;
+    color: black;
+    font-size: 18px;
+    padding: 5px 15px 5px;
+    margin-bottom: 30px;
+    margin-right: 20px;
+}
+
+.task-item:hover {
+    box-shadow: 0 0 11px rgba(33,33,33,.2); 
 }

@@ -1,4 +1,4 @@
-import { format } from 'date-fns';
+import addIcon from './add_icon.png'
 
 const form = document.createElement("form");
 form.setAttribute("method", "post");
@@ -56,6 +56,9 @@ s.setAttribute("type", "button");
 s.classList.add("addTaskBtn");
 s.classList.add("addInHomeView");
 s.textContent = "Add to list";
+const myAddIcon = new Image();
+myAddIcon.src = addIcon;
+s.appendChild(myAddIcon);
 
 form.appendChild(taskTitle);
 form.appendChild(taskLabel);

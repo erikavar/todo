@@ -4,6 +4,7 @@ import generateTaskList from './taskList';
 import addTaskToArray from './addTask';
 import loadCalView from './loadCalView';
 import loadHomeView from './loadHomeView';
+import loadProjView from './loadProjView'
 import './style.css';
 
 generateNavbar();
@@ -12,13 +13,17 @@ generateTaskList();
 document.querySelector(".addTaskBtn").addEventListener("click", addTaskToArray);
 document.getElementById("calViewBtn").addEventListener("click", loadCalView);
 document.getElementById("homeViewBtn").addEventListener("click", loadHomeView);
+document.getElementById("projViewBtn").addEventListener("click", loadProjView);
 
-document.querySelector(".addTaskBtn").addEventListener("click", someListener);
-function someListener(event) {
+
+document.querySelector(".addTaskBtn").addEventListener("click", selectViewToLoad);
+function selectViewToLoad(event) {
     let element = event.target;
     if (element.classList.contains("addInHomeView")) {
         loadHomeView();
     } else if (element.classList.contains("addInCalView")) {
         loadCalView();
+    } else if (element.classList.contains("addInProjView")) {
+        loadProjView();
     }
 }

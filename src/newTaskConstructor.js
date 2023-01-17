@@ -1,6 +1,3 @@
-import arrayToDisplay from "./arrayToDisplay";
-import loadHomeView from "./loadHomeView";
-
 function Task (title, label, priority, dueDate, homePosition) {
     this.title = title,
     this.label = label,
