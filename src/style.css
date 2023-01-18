@@ -196,6 +196,7 @@ input:focus {
 #projectContainer {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-auto-flow: row;
 }
 
 .task-item {

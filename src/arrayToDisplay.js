@@ -96,14 +96,14 @@ function arrayToDisplay(arr) {
                     if (isValid(new Date(dueDate.textContent))) {
                         formattedDate = format(new Date(dueDate.textContent), 'yyyy/MM/dd');
                         task.dueDate = formattedDate;
-                        dueDate.textContent = formattedDate;
-                    } else if (dueDate.textContent == ""){
+                    } else if (dueDate.textContent === "") {
                         formattedDate = "";
                     } else {
+                        console.log(formattedDate);
                         alert("Date invalid. Please use a valid date format.")
                         formattedDate = "";
                     }
-                    //dueDate.textContent = formattedDate;
+                    dueDate.textContent = formattedDate;
                     arr.splice(Number(taskDiv.dataset.indexNumber), 1, task);
                     taskTitle.contentEditable = false;
                     label.contentEditable = false;

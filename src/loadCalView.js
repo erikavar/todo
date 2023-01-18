@@ -6,10 +6,11 @@ import storeDatedTasks from "./storeDatedTasks";
 
 function loadCalView() {
 
-    // getting rid of proj view if the elements exist
-    if(document.getElementById("projectContainer")) {
-        document.getElementById("projectContainer").textContent = "";
-    }
+    // getting rid of proj view
+    const projectContainer = document.querySelectorAll(".label-container")
+    projectContainer.forEach((proj) => {
+        proj.textContent = "";
+    });
 
     sortByDate();
 

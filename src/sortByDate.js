@@ -11,7 +11,7 @@ function sortByDate() {
         if(isValid(new Date(obj.dueDate))) {
             formattedDate = format(new Date(obj.dueDate), 'yyyy/MM/dd');
         } else {
-            formattedDate = " ";
+            formattedDate = format(new Date("9999/12/31"), 'yyyy/MM/dd');
         }
         return {...obj, dueDate: formattedDate};
     });
@@ -19,6 +19,9 @@ function sortByDate() {
     arr1.sort((a, b) => new Date(a.dueDate) - new Date(b.dueDate));
 
     for (const obj of arr1) {
+        if(obj.dueDate === "9999/12/31") {
+            obj.dueDate = "";
+        }
         storeDatedTasks.push(obj);
     }
 
