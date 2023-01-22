@@ -60,7 +60,7 @@ html {
 }
 
 .taskDetails > * {
-    width: 184px;
+    width: 164px;
 }
 
 .newTaskBtn, .checkOffTaskBtn {
@@ -80,7 +80,7 @@ form {
 
 input {
     font-size: 18px;
-    width: 180px;
+    width: 160px;
     border: none;
     font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
     padding-right: 12px;
@@ -175,7 +175,7 @@ input:focus {
     padding-top: 6px;
     padding-right: 0px;
     padding-left: 2px;
-    width: 190px;
+    width: 170px;
 }
 
 [contenteditable="true"]:focus {
@@ -211,3 +211,31 @@ input:focus {
 .task-item:hover {
     box-shadow: 0 0 11px rgba(33,33,33,.2); 
 }
+
+/*@media screen and (max-width: 510px) {
+  #pageContainer {
+    display: block;
+  }
+  .task, form {
+    display: block;
+    max-width: 380px;
+    margin-top: 0;
+  }
+  .task > *, form > * {
+    margin-top: 20px;
+    max-width: 100%
+  }
+  .taskDetails {
+    display: block;
+    margin-top: 20px;
+  }
+  .newTaskBtn {
+    width: 35px;
+    margin: 0;
+  }
+  button {
+    width: 25px;
+    margin: auto;
+    display: block;
+  }
+}*/

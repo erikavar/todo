@@ -16,7 +16,7 @@ function sortByDate() {
         return {...obj, dueDate: formattedDate};
     });
 
-    arr1.sort((a, b) => new Date(a.dueDate) - new Date(b.dueDate));
+    arr1.sort((a, b) => new Date(b.dueDate) - new Date(a.dueDate));
 
     for (const obj of arr1) {
         if(obj.dueDate === "9999/12/31") {

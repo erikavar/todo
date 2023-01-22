@@ -120,7 +120,7 @@ function arrayToDisplay(arr) {
         taskDiv.appendChild(detailsDiv);
         taskDiv.appendChild(editBtn);
         taskDiv.appendChild(deleteBtn);
-        document.getElementById("addedTaskContainer").appendChild(taskDiv);
+        document.getElementById("addedTaskContainer").prepend(taskDiv);
     });
 }
 
