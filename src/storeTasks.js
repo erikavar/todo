@@ -1,5 +1,3 @@
-import { format } from 'date-fns'
-
 let storeTasks = retrieveTasksFromLocalStorage();
 
 export function storeTasksToLocalStorage() {
@@ -15,8 +13,6 @@ export function retrieveTasksFromLocalStorage() {
         task.checkOffTask = function() {
             this.done === "not done" ? this.done = "done" : this.done = "not done";
         }
-        //let datePlaceholder = format(new Date(task.dueDate), 'yyyy/MM/dd');
-        //task.dueDate = datePlaceholder;
     });
     return tasks;
 }
