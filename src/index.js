@@ -5,11 +5,14 @@ import addTaskToArray from './addTask';
 import loadCalView from './loadCalView';
 import loadHomeView from './loadHomeView';
 import loadProjView from './loadProjView'
+import { retrieveTasksFromLocalStorage } from './storeTasks';
 import './style.css';
 
 generateNavbar();
 generateSidebar();
 generateTaskList();
+retrieveTasksFromLocalStorage();
+loadHomeView();
 document.querySelector(".addTaskBtn").addEventListener("click", addTaskToArray);
 document.getElementById("calViewBtn").addEventListener("click", loadCalView);
 document.getElementById("homeViewBtn").addEventListener("click", loadHomeView);

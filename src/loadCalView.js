@@ -7,7 +7,7 @@ import storeDatedTasks from "./storeDatedTasks";
 function loadCalView() {
 
     // getting rid of proj view
-    const projectContainer = document.querySelectorAll(".label-container")
+    const projectContainer = document.querySelectorAll("#projectContainer");
     projectContainer.forEach((proj) => {
         proj.textContent = "";
     });

@@ -25,6 +25,11 @@ function loadProjView() {
     }, {});
 
     // displaying
+
+    if (Object.keys(sortedByLabel).length === 0 && projectContainer.textContent === "") {
+        projectContainer.textContent = "No tasks yet. Go back to All tasks or Sort by date to add tasks and projects.";
+    }
+
     for (let label in sortedByLabel) {
         let labelContainer = document.createElement("div");
         labelContainer.classList.add("label-container");

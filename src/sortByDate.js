@@ -1,6 +1,7 @@
 import storeTasks from "./storeTasks";
 import storeDatedTasks from "./storeDatedTasks";
 import { format, isValid } from 'date-fns'
+import { storeTasksToLocalStorage } from "./storeTasks";
 
 function sortByDate() {
 
@@ -37,6 +38,7 @@ function sortByDate() {
     
             for (const obj of arr2) {
                 storeTasks.push(obj);
+                storeTasksToLocalStorage();
             };
         }
     });
@@ -55,6 +57,7 @@ function sortByDate() {
         
                 for (const obj of arr2) {
                     storeTasks.push(obj);
+                    storeTasksToLocalStorage();
                 };
             }
         }

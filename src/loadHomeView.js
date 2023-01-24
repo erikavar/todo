@@ -1,11 +1,12 @@
 import storeTasks from "./storeTasks";
 import arrayToDisplay from "./arrayToDisplay";
 import checkOffTasks from "./checkOffTasks";
+import { storeTasksToLocalStorage } from "./storeTasks";
 
 function loadHomeView() {
 
     // getting rid of proj view
-    const projectContainer = document.querySelectorAll(".label-container")
+    const projectContainer = document.querySelectorAll("#projectContainer");
     projectContainer.forEach((proj) => {
         proj.textContent = "";
     });
@@ -24,6 +25,7 @@ function loadHomeView() {
     
     arrayToDisplay(storeTasks);
     checkOffTasks(storeTasks);
+    storeTasksToLocalStorage();
 }
 
 export default loadHomeView;

@@ -1,4 +1,4 @@
-import storeTasks from "./storeTasks";
+import storeTasks, { storeTasksToLocalStorage } from "./storeTasks";
 import storeDatedTasks from "./storeDatedTasks";
 import editIcon from './edit_icon.png';
 import deleteIcon from './delete_icon.png'
@@ -71,6 +71,7 @@ function arrayToDisplay(arr) {
             if (confirm("This task will be permanently deleted.")) {
                 document.getElementById("addedTaskContainer").removeChild(taskDiv);
                 arr.splice(Number(taskDiv.dataset.indexNumber), 1);
+                storeTasksToLocalStorage();
             }
         });
         
@@ -105,6 +106,7 @@ function arrayToDisplay(arr) {
                     }
                     dueDate.textContent = formattedDate;
                     arr.splice(Number(taskDiv.dataset.indexNumber), 1, task);
+                    storeTasksToLocalStorage();
                     taskTitle.contentEditable = false;
                     label.contentEditable = false;
                     priority.contentEditable = false;
@@ -112,7 +114,6 @@ function arrayToDisplay(arr) {
                     editBtn.textContent = "Edit";
                     editBtn.appendChild(myEditIcon);
                     editBtn.classList.remove("saveEditsBtn");
-
                 }
             } 
         });
@@ -121,6 +122,8 @@ function arrayToDisplay(arr) {
         taskDiv.appendChild(editBtn);
         taskDiv.appendChild(deleteBtn);
         document.getElementById("addedTaskContainer").prepend(taskDiv);
+
+        storeTasksToLocalStorage();
     });
 }
 

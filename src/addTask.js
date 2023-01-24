@@ -1,5 +1,6 @@
 import storeTasks from "./storeTasks";
 import Task from "./newTaskConstructor";
+import { storeTasksToLocalStorage } from "./storeTasks";
 
 function addTaskToArray() {
 
@@ -15,6 +16,7 @@ function addTaskToArray() {
 
     if (newTask.title) {
         storeTasks.push(newTask);
+        storeTasksToLocalStorage();
     } else {
         alert("Task title missing. Please enter a title for any task you would like to add.")
     }
