@@ -71,8 +71,8 @@ function arrayToDisplay(arr) {
             if (confirm("This task will be permanently deleted.")) {
                 document.getElementById("addedTaskContainer").removeChild(taskDiv);
                 arr.splice(Number(taskDiv.dataset.indexNumber), 1);
-                storeTasksToLocalStorage();
             }
+            storeTasksToLocalStorage();
         });
         
         editBtn.addEventListener("click", function(e) {   
@@ -115,7 +115,8 @@ function arrayToDisplay(arr) {
                     editBtn.appendChild(myEditIcon);
                     editBtn.classList.remove("saveEditsBtn");
                 }
-            } 
+            }
+            storeTasksToLocalStorage(); 
         });
 
         taskDiv.appendChild(detailsDiv);

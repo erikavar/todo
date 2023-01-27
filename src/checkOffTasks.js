@@ -1,6 +1,6 @@
 import arrayToDisplay from "./arrayToDisplay";
 import storeDatedTasks from "./storeDatedTasks";
-import storeTasks from "./storeTasks";
+import storeTasks, { storeTasksToLocalStorage } from "./storeTasks";
 
 function checkOffTasks(x) {
     document.getElementById("addedTaskContainer").addEventListener("click", function(e) {
@@ -20,6 +20,7 @@ function checkOffTasks(x) {
                     for (let j=0; j<storeTasks.length; j++) {
                         if (j===index) {
                             storeTasks[j].done === "not done" ? storeTasks[j].done = "done" : storeTasks[j].done = "not done"; 
+                            storeTasksToLocalStorage();
                         }
                     }
                 }
